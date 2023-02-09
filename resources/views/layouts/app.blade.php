@@ -12,11 +12,18 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <style>
+        .flex-wrapper {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="flex-wrapper">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -83,6 +90,12 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{url('/profile')}}">Profile</a>
                 </li>
+
+                @if(Auth::user()->role_id==2)
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('/account_maintenance')}}">Account Maintenance</a>
+                </li>
+                @endif
             </ul>
         </div>
         @endif
@@ -91,5 +104,11 @@
             @yield('content')
         </main>
     </div>
+
+    <footer style="background-color: beige; width:auto; height:30px;">
+        <div class="text-center">
+            &#169; Amazing E-Grocery 2023
+        </div>
+    </footer>
 </body>
 </html>

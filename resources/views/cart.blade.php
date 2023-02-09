@@ -17,7 +17,13 @@
             <p>Rp. {{$data->item->price}}</p>
         </div>
         <div class="col-md-2">
-            <p><a href="">Delete</a></p>
+            <form action="{{url('cart/delete/'.$data->id)}}" method="POST">
+                @csrf
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-outline-danger">
+                    Delete
+                </button>
+            </form>
         </div>
     </div>
     <?php $price += $data->price; ?>
@@ -29,9 +35,11 @@
                 <b>TOTAL : Rp. {{$price}},-</b>
             </p>
         </div>
+        @if(!$order->isEmpty())
         <div class="col-md-3">
             <a href={{url('checkout')}} type="submit" class="btn btn-primary">Checkout</a>
         </div>
+        @endif
     </div>
 </div>
 @endsection
