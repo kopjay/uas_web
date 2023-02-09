@@ -30,7 +30,7 @@
             </p>
         </div>
         <div class="col-md-3">
-            <button type="submit" class="btn btn-primary">Checkout</button>
+            <a href={{url('checkout')}} type="submit" class="btn btn-primary">Checkout</a>
         </div>
     </div>
 </div>

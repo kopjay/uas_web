@@ -21,3 +21,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{id}', [HomeController::class, 'detail']);
 Route::get('/cart', [HomeController::class, 'cart']);
 Route::post('/addcart', [HomeController::class, 'addCart']);
+Route::get('/checkout', [HomeController::class, 'checkout']);

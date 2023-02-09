@@ -52,4 +52,11 @@ class HomeController extends Controller
         $order = Order::where('user_id', Auth::user()->id)->get();
         return view('cart', compact('order'));
     }
+
+    public function checkout()
+    {
+        // $order = Order::where('user_id', Auth::user()->id)->get();
+        Order::where('user_id', Auth::user()->id)->delete();
+        return view('checkout');
+    }
 }
